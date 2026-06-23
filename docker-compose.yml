@@ -1,0 +1,23 @@
+services:
+  servicedesk-api:
+    build: .
+    container_name: servicedesk-cloud-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - servicedesk_data:/app/data
+    networks:
+      - servicedesk_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  servicedesk_data:
+
+networks:
+  servicedesk_network:
+    driver: bridge
