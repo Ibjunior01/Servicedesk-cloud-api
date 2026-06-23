@@ -1,10 +1,16 @@
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from app.database import get_connection, create_tables
 
+
+APP_NAME = os.getenv("APP_NAME", "ServiceDesk Cloud API")
+APP_ENV = os.getenv("APP_ENV", "development")
+
+
 app = FastAPI(
-    title="ServiceDesk Cloud API",
-    description="API REST para gerenciamento de chamados internos usando Python, FastAPI, Docker e AWS.",
+    title=APP_NAME,
+    description=f"API REST para gerenciamento de chamados internos. Ambiente: {APP_ENV}.",
     version="1.0.0"
 )
 

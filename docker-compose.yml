@@ -2,8 +2,10 @@ services:
   servicedesk-api:
     build: .
     container_name: servicedesk-cloud-api
+    env_file:
+      - .env
     ports:
-      - "8000:8000"
+      - "${APP_PORT:-8000}:8000"
     volumes:
       - servicedesk_data:/app/data
     networks:
