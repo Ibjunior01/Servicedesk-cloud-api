@@ -202,7 +202,7 @@ healthy
 
 ## Estratégia de deploy em nuvem
 
-A estratégia inicial de deploy será manual em uma instância AWS EC2 com Ubuntu Server.
+A estratégia inicial de deploy será manual em uma instância AWS EC2 com Amazon Linux 2023.
 
 Etapas previstas:
 
@@ -232,9 +232,7 @@ Boas práticas consideradas no projeto:
 
 ## Arquitetura
 
-A documentação da arquitetura do projeto está disponível em:
-
-```text
+A documentação da arquitetura do projeto está disponível em: 
 docs/arquitetura.md
 
 ## Evoluções futuras
@@ -254,3 +252,27 @@ Possíveis melhorias futuras:
 ## Autor
 
 Projeto desenvolvido para fins acadêmicos e práticos, com o objetivo de aplicar conceitos de Docker, API REST, computação em nuvem e deploy em ambiente IaaS.
+
+:::writing{variant="document" id="27184"}
+## Estratégia de deploy em nuvem
+
+A estratégia inicial de deploy foi manual em uma instância AWS EC2 utilizando Amazon Linux 2023.
+
+Etapas realizadas:
+
+1. Criação da instância EC2 na AWS.
+2. Configuração do Security Group.
+3. Liberação da porta 22 para acesso SSH administrativo.
+4. Liberação da porta 8000 para acesso à API.
+5. Acesso à instância EC2 via terminal.
+6. Instalação do Git, Docker e Docker Compose.
+7. Clonagem do repositório GitHub na instância EC2.
+8. Criação do arquivo `.env` no ambiente da EC2.
+9. Execução da aplicação com Docker Compose.
+10. Teste da API pelo IP público da instância.
+
+Fluxo utilizado:
+
+```text
+Computador local → GitHub → AWS EC2 → Docker Compose → Container FastAPI
+```

@@ -1,3 +1,8 @@
+# Dockerfile configurado com instruções claras 
+#O projeto utiliza um Dockerfile para criar a imagem da aplicação ServiceDesk Cloud API. 
+#Esse arquivo define o ambiente de execução da API, instala as dependências, copia o código-fonte, configura permissões, expõe a porta da aplicação e executa o servidor Uvicorn.
+
+
 FROM python:3.12-slim
 
 WORKDIR /app
